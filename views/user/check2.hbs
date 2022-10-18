@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity=
+        "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous">
+    </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+    
+ 
+        <div class="CheckOutBox">
+                <div class="head">
+                    <h2 style="text-align:center"> <b><i>PLACE ORDER</i></b></h2>
+                </div>
+                <div class="contentsCheck">
+                    
+                        
+                   <h6 id="id">{{order.id}}</h6>
+
+                    <h1 id="amount" style="display:none;">{{order.amount}}</h1>
+                    <button id="rzp-button1">Pay Now</button>
+                    <div class="logos">
+                        <img class="visaIMG" src="https://digital.hbs.edu/platform-digit/wp-content/uploads/sites/2/2020/02/visa-logo-png-2026-1.png" alt="">
+                        <img class="visaIMG" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/RuPay.svg/1280px-RuPay.svg.png" alt="">
+                        {{!-- <img  class="visaIMG"src="https://w7.pngwing.com/pngs/774/928/png-transparent-apple-pay-mobile-payment-google-pay-apple-logo-text-logo-payment.png" alt=""> --}}
+                        {{!-- <img class="visaIMG" src="data:image/png;base64,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" alt=""> --}}
+                    </div>
+                    <div>
+                        <img class="gpayImg" src="https://etimg.etb2bimg.com/photo/86698389.cms" alt="">
+                    </div>
+                </div>
+                
+        </div>
+
+<script>
+  
+
+    var amount = document.getElementById("amount").innerHTML;
+    var id = document.getElementById("id").innerHTML;
+    
+    console.log(amount)
+var options = {
+    "key": "rzp_test_W8RGjInsDaKQiY", // Enter the Key ID generated from the Dashboard
+    "amount": parseInt(amount)*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "image": "https://media-exp1.licdn.com/dms/image/C5603AQFAJWGquGFbjA/profile-displayphoto-shrink_100_100/0/1632547582083?e=2147483647&v=beta&t=sD7MFIBmuK8nj3F1Go9K4GK_YGsE1HsHI8WOHgUtBs0",
+    "order_id":id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+       varifyPAy(response,amount,id);
+    },
+    "prefill": {
+        "name": "anaz k sunil",
+        "email": "anazksunil2@gmail.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "red"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+function varifyPAy(response,amount,id)
+{
+    console.log(response,"response")
+    console.log("toamnt",amount)
+$.post("/varify",
+         data={
+           response,
+           amount,
+           id
+         },
+         function (data, status) {
+            console.log(data);
+         });
+}
+</script>
+</body>
+</html>

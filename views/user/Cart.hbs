@@ -1,0 +1,85 @@
+<div class="Cartmain">
+    <div class="leftBox">
+        {{#each result}}
+            <div class="CartItem">
+                   
+                        <img class="CartImg" src="images/products/{{this.img}}" alt="">
+                   
+                    <div class="SecondDiv">
+                            <b style="color:black;">{{this.Name}}</b>
+                            <br>
+                            <i style="color:black;">Price :: {{this.price}}</i>
+                            <br>
+                            <i style="color:black;">Quantity {{this.qnty}}</i>
+                            <br>
+                            <i style="color:black;">{{this.description}}</i>
+                    </div>
+                    <div class="ThirdDiv">
+                           {{!-- <button class="RemoveBtn"> <b>Remove</b> </button> <br> --}}
+                             {{!-- <button class="Qplus">+</button> <button class="Qminus">-</button> --}}
+                             <a href="/addQNTY/{{this.id}}" class="btn btn-outline-success Qplus">+</a>
+                             <a href="/subQNTY/{{this.id}}" class="btn btn-outline-primary Qplus">-</a>
+                             <br>
+                             <a href="/RemoveFromCart/{{this.id}}" class="btn btn-outline-danger RemoveBtn">Remove From Cart</a>
+                    </div>
+        </div>
+    {{/each}}
+ {{!-- <div class="CartItem">
+                   
+                        <img class="CartImg" src="https://5.imimg.com/data5/TQ/QP/YN/NSDMERP-82985467/82985467-product-fcp-1552725115852-500x500.jpg" alt="">
+                   
+                    <div class="SecondDiv">
+                            <b>Item Name</b>
+                            <br>
+                            <i>Price</i>
+                            <br>
+                            <i>Quantity</i>
+                            <br>
+                            <i>Discription</i>
+                    </div>
+                    <div class="ThirdDiv">
+                           <button class="RemoveBtn"> <b>Remove X</b> </button> <br>
+                             <button class="Qplus">+</button> <button class="Qminus">-</button>
+                    </div>
+        </div> --}}
+         {{!-- <div class="CartItem">
+                   
+                        <img class="CartImg" src="https://5.imimg.com/data5/TQ/QP/YN/NSDMERP-82985467/82985467-product-fcp-1552725115852-500x500.jpg" alt="">
+                   
+                    <div class="SecondDiv">
+                            <b>Item Name</b>
+                            <br>
+                            <i>Price</i>
+                            <br>
+                            <i>Quantity</i>
+                            <br>
+                            <i>Discription</i>
+                    </div>
+                    <div class="ThirdDiv">
+                           <button class="RemoveBtn"> <b>Remove X</b> </button> <br>
+                             <button class="Qplus">+</button> <button class="Qminus">-</button>
+                    </div>
+        </div> --}}
+        
+
+    </div>
+    <div class="rightBox">
+        <div class="innerBox">
+            <h3 style="text-align:center;color:#fff;font-style:italic;color:black">SUMMARY</h3>
+           <div class="boxInner"><h5><b style="color:#fff;font-style:italic;color:black">do you have a premo code?</b></h5>
+                 <h5><b style="color:#fff;font-style:italic;color:rgb(243, 6, 6)"> Total <h6> </h6>₹{{Total}}  (Exculding Tax)</b></h5>
+                 <h6><b style="color:#fff;font-style:italic;color:rgb(30, 13, 223)">TAX:₹{{tax}}</b></h6>
+                 <h6><b style="color:#fff;font-style:italic;color:black">ESTIMATED SHIPPING CHARGE:0</b></h6>
+                  <h6><b class="total" style="color:rgb(243, 6, 6)">SUB TOTAL: <b>₹{{subTotal}}</b> </b></h6>
+                <a href="/createOrder/{{subTotal}}" class="btn checkout">CHECK OUT</a>
+                {{!-- <form action="/createOrder" method="post">
+                    <input type="text" name="amount" value="{{subTotal}}" >
+                    <input type="submit" value="submit">
+                </form> --}}
+                  {{!-- <Button style="" class="checkout"><b>CHECK OUT</b></Button> --}}
+                <h5 style="color:white;text-align:center;margin-top:5%">OR</h5>
+                <Button style="width:100%;height:30px;background-color:white"><b> CHECK OUT with <b> <i style="color:rgb(21, 69, 228)">pay</i><span><i style="color:rgb(25, 130, 216)">pal</i></span></b></b></Button>
+           </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="Header">
+  <div class="Contents">
+    
+    <img class="logoImg" src="https://cdn.logojoy.com/wp-content/uploads/2018/05/18143926/1365.png" alt="">
+    <form action="" class="form">
+      <input class="searchBar" placeholder="Search for products and brands and more" type="text">
+      <input class="Button" type="submit" value="Search">
+
+    </form>
+    {{#if user}}
+    <a href="" class="more"></a>
+    <div class="dropdown">
+      <span style="color:white"><b>{{user.Name}}</b> </span>
+      <div class="dropdown-content">
+        <a href="/logout" style="text-decoration:none;color:rgb(12, 12, 12)"> <b>Logout</b> </a>
+    
+
+      </div>
+      
+    </div>
+    <button class="iconButton" style="font-size:24px"> <i class="fa fa-shopping-cart icon"><span
+            style="margin-left:8%"><a href="/addToCart" style="text-decoration:none;color:#fff"></i></button> <span
+        class="badge text-bg" style="background-color:rgb(236, 217, 217);color:black" >{{user.Tcart}}</span>
+       <a href="/" class="more" >Explore New</a>
+       <a href="/myOrders" class="more">MyOrders</a>
+    {{else}}
+    <a href="" class="more">More</a>
+        <a href="" class="Login" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</a>
+
+    {{/if}}
+    <html>
+
+    <head>
+      <title>Font Awesome Icons</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+    
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div style="background-color:red;" class="modal-dialog">
+    <div style="background-color:rgb(231, 81, 81);" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> <b></b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="login">
+          <div class="login-triangle"></div>
+
+          <h2 class="login-header"><b>LOG IN</b></h2>
+
+          <form class="login-container" action="/login" method="post">
+            <p><input type="email" name="Email_id" placeholder="Email"></p>
+            <p><input type="password" name="Pass" placeholder="Password"></p>
+            <p><input type="submit" value="Log in"></p>
+          </form>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+          class="btn btn-outline-primary">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{{!-- Register Model --}}
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div style="background-color:red;" class="modal-dialog">
+    <div style="background-color:rgb(231, 81, 81);" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> <b></b></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="login">
+          <div class="login-triangle"></div>
+
+          <h2 class="login-header"><b>REGISTER</b></h2>
+
+          <form class="login-container" action="/Register" method="post">
+            <p><input type="text" name="Name" placeholder="First Name"></p>
+             <p><input type="text" name="LName" placeholder="Last Name"></p>
+            <p><input type="email" name="Email_id" placeholder="Email"></p>
+            <p><input type="tel" name="Mobile" placeholder="mobile"></p>
+            <p><input type="password" name="Password" placeholder="Password"></p>
+            <p><input type="submit" value="REGISTER"></p>
+          </form>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+          class="btn btn-outline-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
